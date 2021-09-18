@@ -1,0 +1,54 @@
+html {
+  * {
+    box-sizing: border-box;
+  }
+}
+
+a:hover {
+  color: red;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+.episodes {
+  display: flex;
+  flex-direction: column;
+
+  .sort-block {
+    display: flex;
+    gap: 10px;
+
+    div {
+      color: rgb(0, 119, 255);
+      font-size: 13px;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.episode-line {
+  display: flex;
+  padding: 5px;
+  margin: 1px;
+  border: gray solid 1px;
+  width: fit-content;
+}
+
+.line-title {
+  width: 200px;
+}
+
+.line-director {
+  width: 200px;
+}
+
+.line-date {
+  width: 100px;
+}

@@ -1,0 +1,12 @@
+<h1>Episodes <ng-container *ngIf="loading">(loading...)</ng-container></h1>
+<div class="episodes">
+  <div class="sort-block">
+    <div (click)="onSortByDate()">Sort by release date</div>
+    <div (click)="onSortByNumber()">Sort by episode number</div>
+  </div>
+  <div *ngFor="let episode of episodes" class="episode-line">
+    <div class="line-title">{{episode.title}}</div>
+    <div class="line-director">{{episode.director}}</div>
+    <div class="line-date">{{episode.release_date}}</div>
+  </div>
+</div>

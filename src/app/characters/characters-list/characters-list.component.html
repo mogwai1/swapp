@@ -1,0 +1,7 @@
+<div class="characters">
+  <sw-select [items]="items" (valueChange)="onFilterChange($event)"></sw-select>
+  <div *ngFor="let character of characters" class="character-line" (click)="onCharacterClick(character)">
+    <div class="line-name" [ngClass]="{'selected': character.url === selectedCharacter?.url}">{{character.name}}</div>
+    <div class="line-date">{{character.birth_year}}</div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<form [formGroup]="profileForm">
+  <section *ngIf="step === 1">
+    <h1>Enter your name</h1>
+    <div class="choice-container">
+      <sw-textbox formControlName="name"></sw-textbox>
+    </div>
+    <sw-button (btnClick)="step = 2">proceed</sw-button>
+  </section>
+
+  <section *ngIf="step === 2">
+    <h1>Chose you side</h1>
+    <div class="choice-container">
+      <div (click)="onLightChoice()">LIGHT</div>
+      <div (click)="onDarkChoice()">DARK</div>
+    </div>
+  </section>
+</form>

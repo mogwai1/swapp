@@ -1,0 +1,10 @@
+{
+  "plugins": [
+    "stylelint-scss"
+  ],
+  "extends": ["stylelint-config-standard", "stylelint-config-recommended-scss"],
+  "rules": {
+    "declaration-block-trailing-semicolon": ["always"],
+    "selector-list-comma-newline-after": "always-multi-line"
+  }
+}

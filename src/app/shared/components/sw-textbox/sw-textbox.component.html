@@ -1,0 +1,10 @@
+<input
+  [attr.placeholder]="placeholder"
+  [attr.title]="title"
+  [autocomplete]="autocomplete"
+  [(ngModel)]="value"
+  [required]="!!required"
+  (blur)="onBlur()"
+  (focus)="onFocus()"
+  (ngModelChange)="onValueChange($event)"
+/>

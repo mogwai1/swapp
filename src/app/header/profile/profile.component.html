@@ -1,0 +1,9 @@
+<div style="padding: 20px; background-color: rgb(243, 243, 243); width: 300px; text-align: center;">
+  <ng-container *ngIf="profile.name">
+    <div>Welcome, {{profile.name}} ({{profile.forceSide === 'light' ? 'Jedi' : 'Sith'}})</div>
+    <div class="edit-profile" (click)="onEditProfile()">Edit profile</div>
+  </ng-container>
+  <ng-container *ngIf="!profile.name">
+    <div class="edit-profile" (click)="onEditProfile()">Enter to get the power</div>
+  </ng-container>
+</div>

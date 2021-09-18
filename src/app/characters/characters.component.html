@@ -1,0 +1,15 @@
+<h1>Персонажи <ng-container *ngIf="loading$ | async">(loading...)</ng-container></h1>
+<div class="characters-container">
+  <characters-list
+    [characters]="characters$ | async"
+    [loading]="loading$ | async"
+    [selectedCharacter]="selectedCharacter$ | async"
+    (selectCharacter)="onSelectCharacter($event)"
+    (filterChange)="onFilterChange($event)"
+  ></characters-list>
+  <character-details
+    *ngIf="selectedCharacter$ | async"
+    [character]="characterDetails$ | async"
+    [loading]="loadingDetails$ | async"
+  ></character-details>
+</div>

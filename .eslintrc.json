@@ -1,0 +1,94 @@
+{
+  "root": true,
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "project": [
+          "tsconfig.json",
+          "e2e/tsconfig.e2e.json"
+        ],
+        "createDefaultProgram": true
+      },
+      "plugins": [
+        "@typescript-eslint", // can be omitted (implicitly added by plugin:@angular-eslint/recommended), kept for clarity
+        "@angular-eslint", // can be omitted (implicitly added by plugin:@angular-eslint/recommended), kept for clarity
+        "prettier", // can be omitted (implicitly added by plugin:prettier/recommended), kept for clarity
+        "eslint-plugin-import", // can be omitted (implicitly added by plugin:@angular-eslint/ng-cli-compat), kept for clarity
+        "eslint-plugin-jsdoc", // can be omitted (implicitly added by plugin:@angular-eslint/ng-cli-compat), kept for clarity
+        "eslint-plugin-prefer-arrow" // can be omitted (implicitly added by plugin:@angular-eslint/ng-cli-compat), kept for clarity
+      ],
+      "settings": {
+        // Configure eslint-plugin-import to property resolve typescript aliased imports
+        "import/resolver": { "typescript": {} }
+      },
+      "extends": [
+        // Enables eslint recommended rules
+        "eslint:recommended",
+
+        // Enables typescript recommended rules
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+
+        // Enables Angular recommended rules
+        "plugin:@angular-eslint/recommended",
+        // Enables parsing of Angular inline templates
+        "plugin:@angular-eslint/template/process-inline-templates",
+
+        // Enables some rules to match with Angular CLI tslint rules
+        "plugin:@angular-eslint/ng-cli-compat",
+        "plugin:@angular-eslint/ng-cli-compat--formatting-add-on",
+
+        // Enables recommended rules provided by eslint-plugin-import
+        "plugin:import/recommended",
+        "plugin:import/typescript",
+
+        // Disables ESLint formatting rules in favor of Prettier; reports Prettier issues as ESLint issues
+        "plugin:prettier/recommended"
+      ],
+      "rules": {
+        // TotalOne custom rules overrides.
+        // Whenever possible try to rely on recommended configs provided by plugins (as they are not static and evolving with community and best practices).
+
+        // ------ eslint common rules overrides ------
+        //...
+
+        // ------ plugin:@typescript-eslint overrides ------
+        "@typescript-eslint/array-type": ["error", { "default": "array" }],
+        "@typescript-eslint/explicit-module-boundary-types": "off", // disabled as too much issues
+        "@typescript-eslint/naming-convention": [
+          "error",
+          { "selector": "default", "format": ["camelCase"], "leadingUnderscore": "allow", "trailingUnderscore": "allow" }, // default
+          { "selector": "variable", "format": ["camelCase", "UPPER_CASE"], "leadingUnderscore": "allow", "trailingUnderscore": "allow" }, // default
+          { "selector": "typeLike", "format": ["PascalCase"] }, // default
+          { "selector": "enumMember", "format": ["camelCase", "PascalCase"] } // allow PascalCase for enums
+        ],
+        "@typescript-eslint/no-namespace": "off", // disabled as too much issues
+        "@typescript-eslint/unbound-method": ["error", { "ignoreStatic": true }] // disabled for static since heavily used with ngxs selectors
+
+        // ------ plugin:@angular-eslint overrides ------
+        //...
+      }
+    },
+    {
+      "files": ["*.html"],
+      "parser": "@angular-eslint/template-parser", // not needed, will be extended from plugin:@angular-eslint/template/recommended
+      "extends": [
+        // Enables Angular templates parser and apply set of recommended rules
+        "plugin:@angular-eslint/template/recommended"
+      ],
+      "rules": {
+        // ------ plugin:@angular-eslint overrides ------
+        "@angular-eslint/template/use-track-by-function": ["error"]
+      }
+    },
+    {
+      "files": ["*.js"],
+      "env": { "es6": true },
+      "parserOptions": { "ecmaVersion": "latest" }
+    }
+  ]
+}

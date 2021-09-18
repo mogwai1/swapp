@@ -1,0 +1,9 @@
+:host {
+  .primary-button {
+    background-color: var(--primary);
+
+    ::ng-deep span.mat-button-wrapper {
+      color: var(--tabloid);
+    }
+  }
+}

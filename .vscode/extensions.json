@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "angular.ng-template",
+    "mikael.angular-beastcode",
+    "stylelint.vscode-stylelint"
+  ]
+}

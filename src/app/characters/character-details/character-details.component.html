@@ -1,0 +1,10 @@
+<div class="character">
+  <div *ngIf="loading">loading</div>
+  <ng-container *ngIf="!loading && character">
+    <div>name: {{character.name}}</div>
+    <div>birth: {{character.birth_year}}</div>
+    <div>height: {{character.height}}</div>
+    <div>mass: {{character.mass}}</div>
+    <div>gender: {{character.gender}}</div>
+  </ng-container>
+</div>

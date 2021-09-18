@@ -1,0 +1,25 @@
+.characters {
+  display: flex;
+  flex-direction: column;
+
+  .character-line {
+    display: flex;
+    padding: 5px;
+    margin: 1px;
+    border: gray solid 1px;
+    width: fit-content;
+    cursor: pointer;
+
+    .selected {
+      text-decoration: underline;
+    }
+
+    .line-name {
+      width: 200px;
+    }
+
+    .line-date {
+      width: 100px;
+    }
+  }
+}

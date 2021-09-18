@@ -1,0 +1,12 @@
+<div class="header-container">
+  <nav>
+    <div [routerLink]="['/episodes']" routerLinkActive="active">Episodes</div>
+    <div [routerLink]="['/characters']" routerLinkActive="active">Characters</div>
+  </nav>
+
+  <profile [profile]="profile$ | async" (editProfile)="onEditProfile()"></profile>
+
+  <dialog id="edit-dialog">
+    <profile-edit [profile]="profile$ | async" (saveProfile)="onSaveProfile($event)"></profile-edit>
+  </dialog>
+</div>
